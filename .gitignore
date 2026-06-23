@@ -1,0 +1,31 @@
+# C++ executables
+*.exe
+*.out
+*.o
+*.a
+*.so
+*.dylib
+
+# Compiled object files
+*.obj
+
+# Executable files
+*.bin
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Build directories
+build/
+dist/
+Debug/
+Release/
