@@ -9,17 +9,24 @@ using pll = pair<long long,long long>;
 
 void solve(){
     int n; cin>>n;
-    vi vec(n);
+    vi vec(n), a(n, 0);
     for(auto &it: vec)
         cin>>it;
-    int ans = vec[n-1]-vec[0];
-    for(int i = 1; i<n; ++i)
-        ans = max(ans, vec[i]-vec[0]);
-    for(int i = 0; i<n-1; ++i)
-        ans = max(ans, vec[n-1]-vec[i]);
-    for(int i = 0; i<n-1; ++i)
-        ans = max(ans, vec[i]-vec[i+1]);
 
+    int ans = 0;
+    int counter = 30;
+    while(counter--){
+        for(int i = 0; i<n-1; ++i){
+            while(vec[i+1]<=vec[i]){
+                vec[i]/=2;
+                ans++;
+            }
+        }
+        if(n>1 && vec[0] == vec[1] && vec[1] == 1){
+            cout<<"-1\n";
+            return;
+        }
+    }
     cout<<ans<<"\n";
 }
 

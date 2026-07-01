@@ -8,8 +8,11 @@ using pii = pair<int,int>;
 using pll = pair<long long,long long>;
 
 void solve(){
-    int n, k; cin>>n>>k;
-    cout<<((n == k && !(((n+1)/2)&1))? "No\n" : "Yes\n");
+    string n; cin>>n;
+    cout<<1;
+    for(int i = 0; i<n.size()-1; ++i)
+        cout<<0;
+    cout<<1<<"\n";
 }
 
 static auto fast_io = []() {

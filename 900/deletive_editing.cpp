@@ -1,3 +1,4 @@
+// RADHA VALLABH SHRI HARIVANSH
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,19 +9,24 @@ using pii = pair<int,int>;
 using pll = pair<long long,long long>;
 
 void solve(){
-    int n; cin>>n;
-    vi vec(n);
-    for(auto &it: vec)
-        cin>>it;
-    int ans = vec[n-1]-vec[0];
-    for(int i = 1; i<n; ++i)
-        ans = max(ans, vec[i]-vec[0]);
-    for(int i = 0; i<n-1; ++i)
-        ans = max(ans, vec[n-1]-vec[i]);
-    for(int i = 0; i<n-1; ++i)
-        ans = max(ans, vec[i]-vec[i+1]);
+    string a, b; cin>>a>>b;
+    map<char, int> mp;
+    int i = a.size(), j = b.size();
+    
+    while(i>=0 && j>=0){
+        mp[a[i]]++;
+        if(mp.find(b[j]) != mp.end() && mp[b[j]] > 0){
+            cout<<"NO\n";
+            return;
+        }
+        if(a[i] == b[j]){
+            mp[b[j]]--;
+            
+        }
+        i--;
+    }
 
-    cout<<ans<<"\n";
+
 }
 
 static auto fast_io = []() {

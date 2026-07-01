@@ -1,3 +1,4 @@
+// RADHA VALLABH SHRI HARIVANSH
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -9,16 +10,20 @@ using pll = pair<long long,long long>;
 
 void solve(){
     int n; cin>>n;
-    vi vec(n);
-    for(auto &it: vec)
-        cin>>it;
-    int ans = vec[n-1]-vec[0];
-    for(int i = 1; i<n; ++i)
-        ans = max(ans, vec[i]-vec[0]);
-    for(int i = 0; i<n-1; ++i)
-        ans = max(ans, vec[n-1]-vec[i]);
-    for(int i = 0; i<n-1; ++i)
-        ans = max(ans, vec[i]-vec[i+1]);
+    int maxi = 0; map<int, int> mp;
+    int temp = n;
+    while(temp--){
+        int a; cin>>a;
+        mp[a]++;
+        maxi = max(maxi, mp[a]);
+    }
+
+    int len = n-maxi, ans = 0, prev = maxi;
+    while(len){
+        ans++, ans+=(min(prev, len));
+        len-=min(prev, len);
+        prev*=2;
+    }
 
     cout<<ans<<"\n";
 }
