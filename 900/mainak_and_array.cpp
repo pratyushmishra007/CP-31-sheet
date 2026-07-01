@@ -8,26 +8,22 @@ using pii = pair<int,int>;
 using pll = pair<long long,long long>;
 
 void solve(){
-    int n, k, x; cin>>n>>k>>x;
-    if(x != 1){
-        cout<<"YES\n";
-        cout<<n<<"\n";
-        for(int i = 0; i<n; ++i)
-            cout<<"1 ";
-        cout<<"\n";
+    int n; cin>>n;
+    vi vec(n);
+    int maxi = 0, mini = INT_MAX;
+    for(auto &it: vec)
+        cin>>it, maxi = max(maxi, it), mini = min(mini, it);
+
+    if(vec[0] == mini || vec[0] == maxi || vec[n-1] == maxi || vec[n-1] == mini){
+        cout<<maxi-mini<<"\n";
         return;
     }
 
-    if((k == 2 && n&1) || (k == 1 && x == 1)){
-        cout<<"NO\n";
-        return;
-    }
-    cout<<"YES\n";
-    int num = n/2;
-    cout<<num<<"\n";
-    for(int i = 0; i<num-1; ++i)
-        cout<<"2 ";
-    cout<<(n&1 ? "3\n" : "2\n");
+    int ans = 0;
+    for(int i = 1; i<n-1; ++i)
+        ans = max({ans, abs(vec[i]-vec[i-1]), abs(vec[i+1]-vec[i])});
+
+    cout<<ans<<"\n";
 }
 
 static auto fast_io = []() {

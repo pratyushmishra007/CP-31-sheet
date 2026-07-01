@@ -7,7 +7,7 @@ using vll = vector<long long>;
 using pii = pair<int,int>;
 using pll = pair<long long,long long>;
 
-void solve() {
+void solve(){
 }
 
 static auto fast_io = []() {

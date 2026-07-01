@@ -9,11 +9,16 @@ using pll = pair<long long,long long>;
 
 void solve(){
     int n; cin>>n;
-    string s; cin>>s;
-    int i = 0, j = n-1;
-    while(s[i]!=s[j])
-        i++, j--;
-    cout<<(j-i+1)<<"\n";
+    int ans = 0, s = n;
+    while(n--){
+        int a; cin>>a;
+        ans^=a;
+    }
+    if(!(s&1) && ans){
+        cout<<"-1\n";
+        return;
+    }
+    cout<<ans<<"\n";
 }
 
 static auto fast_io = []() {

@@ -13,9 +13,14 @@ void solve(){
     for(auto &it: vec)
         cin>>it;
 
-    for(int i = 0; i<n-1; ++i){
-        
-    }
+    for(int i = 0; i<n; ++i)
+        vec[i]+=(vec[i] == 1);
+
+    for(int i = 0; i<n-1; ++i)
+        vec[i+1]+=(vec[i+1]%vec[i] == 0);
+    for(auto &it: vec)
+        cout<<it<<" ";
+    cout<<"\n";
 }
 
 static auto fast_io = []() {

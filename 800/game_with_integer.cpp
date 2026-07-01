@@ -9,16 +9,7 @@ using pll = pair<long long,long long>;
 
 void solve(){
     int n; cin>>n;
-    int index = 1;
-    bool flag = false;
-    while(n--){
-        int a; cin>>a;
-        if(a == 1 && index == 1){
-            flag = true;
-        }
-        index++;
-    }
-    cout<<(flag ? "YES" : "NO")<<"\n";
+    cout<<(n%3 ? "First\n" : "Second\n");
 }
 
 static auto fast_io = []() {
